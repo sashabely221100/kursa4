@@ -29,10 +29,12 @@
 *,
 *::before,
 *::after{
+	flex-wrap: wrap;
     margin: 0;
     padding: 0;
     border: 0;
-    box-sizing: border-box;}
+    // box-sizing: border-box;
+}
 *:focus{
 	outline: none !important;
 
@@ -402,17 +404,17 @@ body{
 						&__text{
 							
 							max-width: 60%;
-    						height: 75%;
     						gap: 20px;
     						display: flex;
     						flex-direction: column;
     						align-items: flex-end;
 							
-								h3{ 
-									font-weight: 300;
-									font-size: 24px;
-									line-height: 35px;
-									width: max-content;}
+							h3{ 
+								font-weight: 300;
+								font-size: 24px;
+								line-height: 35px;
+								width: max-content;
+							}
 						}
 					}
 				}
@@ -422,7 +424,6 @@ body{
 
 
 	&__catalogue{
-		
 
 		h1{
 			font-family: 'MuseoSansCyrl-700';
@@ -441,14 +442,88 @@ body{
 
 		&__item{
 			grid-column:span 3;
+			border: 1px solid $purple;
+			box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+			padding-bottom: 12px;
+			
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			&__bottom{
+				display: flex;
+				flex-direction: column;
+				width: 100%;
+				gap: 24px;
+    			align-items: center;
+				&__stars{
+					display: flex;
+    				justify-content: flex-start;
+    				width: 100%;
+    				padding: 0 6%;
+				}
+				&__text{
+
+					width: 100%;
+    				padding: 0 6%;
+    				display: flex;
+    				justify-content: space-between;
+    				gap: 20px;
+    				align-items: center;
+					&--price{
+						&:first-child{
+							text-decoration: line-through;
+							color:$grey;
+						}
+					}
+				}
+
+				&__button{
+					color: $white;
+					font-weight: 700;
+					font-size: 16px;
+					line-height: 18px;
+					position: relative;
+					width: 70%;
+					height: 60px;
+					background-color: $purple;
+					box-shadow: inset 0px 5px 5px rgba(0, 0, 0, 0.15);
+					border-radius: 7px;
+					@include transition;
+					&:hover{
+						@include hoverAnimation;
+					}
+					&::after{
+   						content: '';
+   				    	content: "";
+    					z-index: 0;
+    					width: fit-content;
+    					height: fit-content;
+    					position: absolute;
+    					transform: translate(-50%,10%);
+    					opacity: 0.2;
+    					background: url(/src/img/header/header__cards/card__button__bg.svg) no-repeat;
+					}
+				}
+				&__link{
+					color: $grey;
+					text-decoration: underline;
+				}
+			}
 		}
 
 
-
-
-
+		
 		&__sale{
+			&--heading{
+				text-align: center;
+				margin: 100px 0 40px;
+		}
 
+			&__grid{
+				@include gridLayout;
+    			grid-auto-rows: 550px;
+				row-gap: 22px;
+			}
 		}
 		&__seasons{
 
