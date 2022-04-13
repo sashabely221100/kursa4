@@ -29,11 +29,11 @@
 *,
 *::before,
 *::after{
-	flex-wrap: wrap;
+	// flex-wrap: wrap;
     margin: 0;
     padding: 0;
     border: 0;
-    // box-sizing: border-box;
+    box-sizing: border-box;
 }
 *:focus{
 	outline: none !important;
@@ -88,7 +88,8 @@ img{vertical-align: top;}
 
 body{
 		background-color: $white;
-
+		width: 100%;
+		
 	.header{
 		&__link{
 			color: $white;
@@ -154,6 +155,13 @@ body{
 	}
 
 	.main{
+		
+		background-image: url(/src/img/main/flowers_left.svg), 
+							url(/src/img/main/flowers_right.svg);
+		background-repeat: repeat-y, repeat-y;
+		background-position: left, right;
+		background-size: 100px 60%;
+		background-attachment: fixed, fixed;
 		width: 100%;
 		margin-top: 28px;
 		display: flex;
@@ -171,6 +179,25 @@ body{
 			// justify-content: space-between;
 			&__logo{
 				grid-column: 1/3 ;
+				&:hover{
+					animation: effect linear 1s;
+					-webkit-animation: effect linear 1s;
+					@keyframes effect{
+						0% {
+                    		transform: scale(1, 1);
+                		}
+                		25% {
+                		    transform: scale(1.3, 0.6);
+                		}
+					
+                		50% {
+                		    transform: scale(1.1, 0.9);
+                		}
+                		100% {
+                		    transform: scale(1, 1);
+                		}
+					}
+				}
 			}
 			&__info{
     			grid-column: 10/13;
@@ -421,8 +448,6 @@ body{
 			}
 		}
 
-
-
 	&__catalogue{
 
 		h1{
@@ -441,36 +466,54 @@ body{
 
 
 		&__item{
+
 			grid-column:span 3;
+			background: $white;
 			border: 1px solid $purple;
 			box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
-			padding-bottom: 12px;
-			
+			padding-bottom: 22px;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
+			&__top{
+				display: flex;
+				place-content: center;
+				flex-grow: 1;
+				height: 100%;
+				width: 100%;
+				background-color: $lightgrey;
+			}
 			&__bottom{
 				display: flex;
-				flex-direction: column;
+				flex-wrap: wrap;
+				flex-direction: row;
+				padding: 10px 2%;
 				width: 100%;
-				gap: 24px;
-    			align-items: center;
+				gap: 20px;
+				justify-content: center;
 				&__stars{
 					display: flex;
     				justify-content: flex-start;
     				width: 100%;
-    				padding: 0 6%;
 				}
 				&__text{
 
 					width: 100%;
-    				padding: 0 6%;
     				display: flex;
     				justify-content: space-between;
     				gap: 20px;
     				align-items: center;
+
+					
 					&--price{
-						&:first-child{
+						display: flex;
+						flex-direction: column;
+						font-weight: 700;
+						font-size: 18px;
+						line-height: 18px;
+						color: $purple;
+						:nth-child(1){
+							font-weight: 300;
 							text-decoration: line-through;
 							color:$grey;
 						}
@@ -514,25 +557,202 @@ body{
 
 		
 		&__sale{
+			height: fit-content;
 			&--heading{
 				text-align: center;
 				margin: 100px 0 40px;
 		}
-
 			&__grid{
 				@include gridLayout;
-    			grid-auto-rows: 550px;
+    			grid-template-rows:repeat(2, 570px) ;
 				row-gap: 22px;
 			}
 		}
 		&__seasons{
-
+			&--heading{
+				text-align: center;
+				margin: 100px 0 40px;
+		}
+			&__grid{
+				@include gridLayout;
+    			grid-template-rows:repeat(2, 570px) ;
+				row-gap: 22px;
+			}
 		}
 		&__gift{
-
+			&--heading{
+				text-align: center;
+				margin: 100px 0 40px;
+			}
+			&__grid{
+				@include gridLayout;
+    			grid-template-rows:repeat(2, 570px) ;
+				row-gap: 22px;
+			}
 		}
 	}
 
 	}
+	
+	.footer{
+		padding-top: 30px;
+		margin-top: 40px;
+		display: flex;
+    	justify-content: center;
+		width: 100%;
+		background: $dark;
+		color: $white;
+		&__wrapper{
+			width: 80%;
+			display: flex;
+			justify-content: space-between;
+			flex-direction: column;
+		}
+		&__top{
+			display: flex;
+			width: 100%;
+			justify-content: space-between;
+			align-items: center;
+			gap: 50px;
+			&__logo{
+
+			}
+			&__info{
+				&__links{
+					display: flex;
+					flex-direction: column;
+					gap: 10px;
+					flex-grow: 1;
+					>a{
+						font-weight: 300;
+						font-size: 16px;
+						line-height: 18px;
+						color: $white;
+						&:hover{
+						color:$purple;
+					}
+					}
+				}
+				&__header{
+					color: $white;
+					font-weight: 700;
+					font-size: 18px;
+					line-height: 18px;
+					flex-grow: 1;
+
+				}
+				display: flex;
+				flex-direction: column;
+				height: 100%;
+			}
+			&__support{
+				&__links{
+					display: flex;
+					flex-direction: column;
+					gap: 10px;
+					flex-grow: 1;
+					>a{
+						font-weight: 300;
+						font-size: 16px;
+						line-height: 18px;
+						color: $white;
+						&:hover{
+						color:$purple;
+					}
+					}
+				}
+				&__header{
+					color: $white;
+					font-weight: 700;
+					font-size: 18px;
+					line-height: 18px;
+					flex-grow: 1;
+
+				}
+				display: flex;
+				flex-direction: column;
+				height: 100%;
+			}
+			&__profile{
+				&__links{
+					display: flex;
+					flex-direction: column;
+					gap: 10px;
+					flex-grow: 1;
+					>a{
+						font-weight: 300;
+						font-size: 16px;
+						line-height: 18px;
+						color: $white;
+						&:hover{
+						color:$purple;
+					}
+					}
+				}
+				&__header{
+					color: $white;
+					font-weight: 700;
+					font-size: 18px;
+					line-height: 18px;
+					flex-grow: 1;
+
+				}
+				display: flex;
+				flex-direction: column;
+				height: 100%;
+				}
+				&__additional{
+					&__links{
+					display: flex;
+					flex-direction: column;
+					gap: 10px;
+					flex-grow: 1;
+					align-content:space-between ;
+					>a{
+						font-weight: 300;
+						font-size: 16px;
+						line-height: 18px;
+						color: $white;
+						&:hover{
+						color:$purple;
+					}
+					}
+					}
+					&__header{
+						color: $white;
+						font-weight: 700;
+						font-size: 18px;
+						line-height: 18px;
+						flex-grow: 1;
+					}
+					display: flex;
+					flex-direction: column;
+					height: 100%;
+			}
+		}
+		&__line{
+			border: 1px solid $purple;
+		}
+
+		&__bottom{
+			font-family: 'MuseoSansCyrl-300';
+			font-weight: 300;
+			font-size: 16px;
+			line-height: 18px;
+			display: flex;
+			justify-content: space-between;
+			align-content: center;
+			&__copyright{
+				width: fit-content;
+			}
+			padding-bottom: 30px;
+			&__payment{
+				display: flex;
+				align-content: center;
+				gap: 20px;
+			}
+		}
+	}
+
 }
 

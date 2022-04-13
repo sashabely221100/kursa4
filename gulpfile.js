@@ -1,5 +1,5 @@
 import gulp from 'gulp';
-
+import ghPages from 'gulp-gh-pages';
 //paths import
 import { path } from './gulp/config/path.js';
 //plugins import
@@ -28,3 +28,8 @@ const mainTasks = gulp.parallel(copy, html, scss);
 const dev = gulp.series(reset, mainTasks, watcher);
 // default method execution
 gulp.task('default', dev);
+
+gulp.task('deploy', function () {
+    return gulp.src('./build/**/*')
+        .pipe(ghPages());
+});
