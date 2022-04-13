@@ -10,7 +10,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./scss/style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Главная</title>
 </head>
 
@@ -39,10 +39,10 @@
             <div class="header__nav__item">
                 <p>Город</p>
                 <select name="" id="">
-                    <option value="">Киев</option>
                     <option value="">Харьков</option>
+                    <option value="">Киев</option>
                     <option value="">Одесса</option>
-                    <option value="">Мариуполь</option>
+                    <option value="">Буча</option>
                     <option value="">Днепр</option>
 
                 </select>
@@ -52,15 +52,18 @@
                 <p>Закладки</p>
             </div>
             <div class="header__nav__item">
-                <img src="./img/header/truck.svg" alt="">
+                <img src="/src/img/header/truck.svg" alt="">
                 <p>Доставка и оплата
                 </p>
             </div>
-            <div class="header__nav__item"></div>
+            <div class="header__nav__item">
+                <img src="/src/img/header/phone.svg" alt="">
+                <p>Контакты</p>
+            </div>
             <div class="header__nav__item header__nav__item--right">
-                <img src="./img/header/user-icon.svg" alt="">
-                <a href="#">Вход</a>
-                <a href="#">Регистрация</a>
+                <img src="/src/img/header/user-icon.svg" alt="">
+                <a class="header__link" href="#">Вход</a>
+                <a class="header__link" href="#">Регистрация</a>
             </div>
         </nav>
 
@@ -69,40 +72,102 @@
     </header>
 
     <main class="main">
+
         <section class="main__header">
-            <div class="header__bottom__logo">
+            <div class="main__header__logo">
                 <img src="/src/img/header/logo.svg" alt="">
             </div>
-            <div class="header__bottom__search">
-                <input placeholder="Поиск по категориям" type="text" class="header__bottom__input">
-                <input placeholder="Поиск по товарам" type="text" class="header__bottom__input">
-            </div>
-            <div class="header__bottom__categories">
-                <select name="" id="" class="header__bottom__categories">
-                    <option value="">Розы</option>
-                    <option value="">Цветы в коробке</option>
-                    <option value="">Композиции</option>
-                    <option value="">Подарки</option>
-                    <option value="">Подарочные корзины</option>
-                    <option value="">Букеты невесты</option>
-                    <option value="">Вкусные букеты</option>
-                </select>
-            </div>
-            <div class="header__bottom__info">
-                <div class="header__bottom__info__contacts">
-                    <img class="header__bottom__info__contacts--link" src="" alt="">
-                    <img class="header__bottom__info__contacts--link" src="" alt="">
-                    <img class="header__bottom__info__contacts--link" src="" alt="">
-                    <img class="header__bottom__info__contacts--link" src="" alt="">
-                    <p class="header__bottom__info__contacts--phone">+38 (067) 829 30 30</p>
+
+            <div class="main__header__center">
+
+                <input placeholder="Поиск по категориям" type="text"
+                    class="main__header__center__input   main__header__center__input--categories">
+                <input placeholder="Поиск по товарам" type="text"
+                    class="main__header__center__input   main__header__center__input--goods">
+
+                <div class="main__header__center__categories">
+                    <div class="main__header__center__categories__dropdown  dropdown">
+                        <button class="main__header__center__categories__btn btn  dropdown-toggle" type="button"
+                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Каталог товаров
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="#">Розы</a></li>
+                            <li><a class="dropdown-item" href="#">Цветы в коробке</a></li>
+                            <li><a class="dropdown-item" href="#">Композиции</a></li>
+                            <li><a class="dropdown-item" href="#">Подарки</a></li>
+                            <li><a class="dropdown-item" href="#">Подарочные корзины</a></li>
+                            <li><a class="dropdown-item" href="#">Букеты невесты</a></li>
+                            <li><a class="dropdown-item" href="#">Вкусные букеты</a></li>
+                        </ul>
+                    </div>
+                    <a class="main__header__center__categories__link" href="">Форум</a>
+                    <a class="main__header__center__categories__link" href="">Отзывы</a>
+                    <a class="main__header__center__categories__link" href="">Акции</a>
+                    <a class="main__header__center__categories__link" href="">Новости</a>
+                    <a class="main__header__center__categories__link" href="">Информация</a>
                 </div>
-                <div class="header__bottom__info__cart">
-                    <img src="" alt="" class="header__bottom__info__cart--fav">
-                    <img src="" alt="" class="header__bottom__info__cart--count">
-                    <p class="header__bottom__info__cart--cost"></p>
+            </div>
+            <div class="main__header__info">
+                <div class="main__header__info__contacts">
+                    <img class="main__header__info__contacts--link" src="/src/img/header/viber.svg" alt="">
+                    <img class="main__header__info__contacts--link" src="/src/img/header/inst.svg" alt="">
+                    <img class="main__header__info__contacts--link" width="27" height="27"
+                        src="/src/img/header/telegram.png" alt="">
+                    <img class="main__header__info__contacts--link" src="/src/img/header/facebook.svg" alt="">
+                </div>
+                <div class="main__header__info__phone">
+                    <p>+38 (067) 829 30 30</p>
+                </div>
+                <div class="main__header__info__cart">
+                    <img src="/src/img/header/heart.svg" width="33" height="30" alt="" class="header__info__cart--fav">
+                    <img src="/src/img/header/basket.svg" width="33" height="30" alt=""
+                        class="main__header__bottom__info__cart--count">
+                    <p class="main__header__info__cart--cost">₴ 1 520</p>
                 </div>
             </div>
         </section>
+
+        <section class="main__hero">
+            <div class="main__hero__top">
+                <div class="main__hero__top__item main__hero__top__item--big">
+                    <p>
+                        Скидки <span> -6%</span> на все букеты <span> по предзаказу </span>на 8 марта
+                    </p>
+                </div>
+                <div class="main__hero__top__item">
+                    <p></p>
+                </div>
+                <div class="main__hero__top__item">
+                    <p></p>
+                </div>
+                <div class="main__hero__top__item">
+                    <p></p>
+                </div>
+                <div class="main__hero__top__item">
+                    <p></p>
+                </div>
+            </div>
+            <div class="main__hero__bottom">
+                <div class="main__hero__bottom__item main__hero__bottom__item--left">
+                    <h3>Фото доставок наших букетов</h3>
+                    <p>Безупречное качество обслуживания и доставка в любую точку города</p>
+                </div>
+                <div class="main__hero__bottom__item main__hero__bottom__item--center">
+                    <h3>Видео отчеты клиентов</h3>
+                    <p>Наши счастливые клиенты с букетами от Flowers-Ukraine</p>
+                </div>
+                <div class="main__hero__bottom__item main__hero__bottom__item--right">
+                    <h3>Подарок каждому клиенту</h3>
+                    <p>К каждому заказу мы прилогаем комплимент от компании
+                        в виде маленького презента</p>
+                </div>
+            </div>
+        </section>
+
+
+
+
     </main>
 
     <footer class="footer">
