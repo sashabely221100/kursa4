@@ -18,11 +18,13 @@
 }
 
 
-// @import 'variables';
-    $dark: #333333;
-    $purple: #956D84;
-    $grey:#828282;
-    $white:#ffffff;
+
+@import 'variables';
+@import 'mixins';
+    // $dark: #333333;
+    // $purple: #956D84;
+    // $grey:#828282;
+    // $white:#ffffff;
 
 *,
 *::before,
@@ -112,7 +114,7 @@ body{
 			justify-content: space-between;
 			align-items: center;
 			// padding: 0 8%;
-			width: 1420px;
+			width: 92.5%;
 			height: 100%;
 			select{
 			background-color: $dark;
@@ -124,6 +126,7 @@ body{
 			}
 			&__item{
 				cursor: pointer;
+
 				color: $white;
 					&:hover{
 						color: $purple !important;
@@ -195,6 +198,14 @@ body{
 				column-gap: 20px;
 				grid-template-columns: repeat(7, minmax(100px,110px));
 				grid-template-rows: 1fr 1fr;
+				&__search{
+					position: relative;
+					z-index: 10;
+					top: -80px;
+					left: 800px;
+					width: 19px;
+					height: 19px;
+				}
 				&__input{
 					&--categories{
 						grid-row: 1/2;
@@ -205,12 +216,7 @@ body{
 						grid-row: 1/2;
 						grid-column: 3/8;
 						border-bottom: 1px solid $purple;
-						::after{
-							position: relative;
-							width: fit-content;
-							content: url(../img/header/magnifier.svg);
-							
-						}
+						
 					}
 				}
 
@@ -246,9 +252,12 @@ body{
 					}
 						
 					}
-					&--link{
+					&__link{
 						color: $dark; 
 						font-weight: 700 ;
+						&:hover{
+							color: $purple !important;
+						}
 					}
 				}
 			}
@@ -256,21 +265,154 @@ body{
 		}
 
 		&__hero{
-			
-			display: grid;
-			grid-template-columns: repeat(12, 100px);
-			grid-template-rows: 321px 321px 220px;
-			gap: 30px;
+			margin-top: 55px;
 			&__top{
-				font-family: 'MuseoSansCyrl-700';
+				font-family: 'MuseoSansCyrl-700' sans-serif;
+				text-align: right;
 				font-weight: 700;
 				font-size: 36px;
 				line-height: 50px;
+				display: grid;
+				gap: 20px;
+				grid-template-columns: repeat(12, 100px);
+				grid-template-rows: 321px 321px ;
+				margin-bottom: 44px;
 				&__item{
-					padding: 20px;
+					user-select: none;
+ 					@include transition;
+ 					grid-column: span 3;
+ 					padding: 20px;
+					&:hover{
+					@include hoverAnimation;
+					}
+					&:not(:first-of-type){
+						text-align: left;
+					}
 					&--big{
-						span{
-							color: $white;
+						grid-column: 1/7;
+						grid-row: span 2;
+						background:  url(/src/img/header/header__cards/card1__bg.png) 0 0/cover no-repeat;
+						p{
+						user-select: none;
+
+						text-align-last: left;
+						margin-left: 40%;
+							span{
+								opacity: .9;
+								color: $white;
+							}
+						}
+					}
+					&--2{background: url(/src/img/header/header__cards/card2__bg.png) 0 0/cover no-repeat;}
+					&--3{background: url(/src/img/header/header__cards/card3__bg.png) 0 0/cover no-repeat;}
+					&--4{
+						background: url(/src/img/header/header__cards/image_42.png) 0 0/cover;
+						// z-index: 1;
+						background-color:  $yellow;
+					}
+					&--5{
+						background: url(/src/img/header/header__cards/card5__bg.png) 0 0/cover;
+						&::after{
+							position: relative;
+							z-index: 10;
+							bottom: 0;
+							right: 0;
+							width: fit-content;
+							height: fit-content;
+							background: url(/src/img/header/header__cards/image_43.png);
+						}
+					}
+
+				}
+				
+			}
+			&__bottom{
+				display: grid;
+				column-gap: 20px;
+				grid-template-columns: repeat(12, 100px);
+				grid-template-rows: 220px;
+				margin-bottom: 20px;
+				&__item{
+					@include transition;
+					&:hover{
+					@include hoverAnimation;
+					}
+					cursor: pointer;
+					padding: 20px;
+					text-align: center;
+					font-family: 'MuseoSansCyrl-300';
+					font-style: normal;
+					font-weight: 300;
+					font-size: 24px;
+					line-height: 35px;
+					color: $dark;
+					&--left{
+						background: url(/src/img/header/header__cards/card__left.png);
+						grid-column: 1/5;
+						grid-column: 1/5;
+    					display: flex;
+    					align-items: flex-end;
+    					justify-content: flex-start;
+    					text-align: left;
+						p{
+						font-size: 14px;
+						line-height: 18px;
+						color: $grey;
+						}
+						&__text{
+							width: 60%;
+    						height: 75%;
+    						gap: 20px;
+    						display: flex;
+    						flex-direction: column;
+						}
+					}
+					&--center{
+						background: url(/src/img/header/header__cards/card__center.png);
+						display: flex;
+						flex-direction: column;
+						justify-content: flex-end;
+						gap: 20px;
+						grid-column: 5/9;
+						color: $white !important;
+							&__text{
+								display: flex;
+								flex-direction: column;
+								gap: 20px;
+								p{
+									font-size: 14px;
+									line-height: 18px;
+								}
+							}
+					}
+					&--right{
+						background: url(/src/img/header/header__cards/card__right.png);
+
+						grid-column: 9/13;
+
+						display: flex;
+    					align-items: flex-end;
+    					justify-content: flex-end;
+    					text-align: right;
+						p{
+						font-size: 14px;
+						line-height: 18px;
+						color: $grey;
+						}
+						&__text{
+							
+							max-width: 60%;
+    						height: 75%;
+    						gap: 20px;
+    						display: flex;
+    						flex-direction: column;
+    						align-items: flex-end;
+							
+								h3{ 
+									font-weight: 300;
+									font-size: 24px;
+									line-height: 35px;
+									width: max-content;}
 						}
 					}
 				}
@@ -279,7 +421,42 @@ body{
 
 
 
+	&__catalogue{
+		
 
+		h1{
+			font-family: 'MuseoSansCyrl-700';
+			font-style: normal;
+			font-weight: 700;
+			font-size: 48px;
+			line-height: 38%;
+				a{
+			color: $black;
+					&:hover{
+					color:$black;
+				}
+			}
+		}
+
+
+		&__item{
+			grid-column:span 3;
+		}
+
+
+
+
+
+		&__sale{
+
+		}
+		&__seasons{
+
+		}
+		&__gift{
+
+		}
+	}
 
 	}
 }
